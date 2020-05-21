@@ -1,4 +1,8 @@
-#@author = dewlooper(Yigitkader)
+#!/usr/bin/env python
+__author__      = "Yigit Kader(dewlooper))"
+__email__ = "ryigitkader@gmail.com"
+
+
 import requests
 import os
 import img2pdf
