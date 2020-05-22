@@ -11,7 +11,7 @@ from fpdf import FPDF
 
 
 ###Download Images From Url
-endOfPage = 389 # total page number = end of page number
+endOfPage = your-total-page-number(must be int) # total page number = end of page number
 for i in range(1,endOfPage):
     # in addition 'i' is going to be our page number
     image_url = "linkOfSlideSharePic"+str(i)+"restOfLink"
