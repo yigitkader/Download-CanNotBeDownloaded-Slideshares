@@ -22,11 +22,17 @@ for i in range(1,endOfPage):
 
 ###Adding Images From Folder To List
 imageList = []
+sortedList = []
 for i in os.listdir('your-path'):
-    if "jpeg" in i: 
-        imagePath = "your-path/"+str(i)
-        imageList.append(imagePath)
-imageList.sort()
+    if "jpeg" in i:
+        page = int(i[:-5])
+        sortedList.append(int(page))
+        
+sortedList.sort()
+
+for i in sortedList:
+    imagePath="your-path/"+str(i)+".jpeg"
+    imageList.append(imagePath)
 
 
 ###Make Pdf With Images
