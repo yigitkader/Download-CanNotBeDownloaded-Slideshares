@@ -4,9 +4,8 @@
 
 # Notice
     Firstly you need to know end page of slideshare pdf because we will use this.
-    And dont forget to add slideshare source link of a parameter.
-    You have to use this(giving endOfPageNumber and Link) manual on code, cause the sourceLinks can vary.
-    
+    Get the slideshare's link(!important it should be data full link) 
+    Choose folder on code for download images
 
 # How works:
 
