@@ -1,7 +1,6 @@
-#!/usr/bin/env python
+
 __author__      = "Yigit Kader(dewlooper))"
 __email__ = "ryigitkader@gmail.com"
-
 
 import requests
 import os
@@ -10,31 +9,44 @@ from PIL import Image
 from fpdf import FPDF
 
 
-###Download Images From Url
-endOfPage = your-total-page-number(must be int) # total page number = end of page number
-for i in range(1,endOfPage):
-    # in addition 'i' is going to be our page number
-    image_url = "linkOfSlideSharePic"+str(i)+"restOfLink"
-    img_data = requests.get(image_url).content
-    with open('your-path/image_name'+str(i)+'.jpeg', 'wb') as handler:
-        handler.write(img_data)
+#Download images from url
+def downloadImages(url,endOfPage):
+    try:
+        image_urlList = list(url)
+        for i in range(1,endOfPage):
+            #!! We choose -24.element because if you use dataFull link(get web page source code),  slideshare's rest of 23 element is same 
+            image_urlList[-24] = str(i) 
+            image_url = "".join(image_urlList)
+            img_data = requests.get(image_url).content
+            with open('downloads/'+str(i)+'.jpeg', 'wb') as handler:
+                handler.write(img_data)                       
+    except:
+        print("Error !")
 
 
-###Adding Images From Folder To List
+
+# !! Important - slideshares 'data-full' link
+URL = str(input("Enter slideshare link : \n"))  
+endOfPage = int(input("Total page number : \n"))
+downloadImages(URL,endOfPage)
+
+
+#Adding images from folder to List
+
 imageList = []
 sortedList = []
-for i in os.listdir('your-path'):
+for i in os.listdir('downloads'):
     if "jpeg" in i:
         page = int(i[:-5])
-        sortedList.append(int(page))
-        
+        sortedList.append(int(page))       
+
 sortedList.sort()
 
 for i in sortedList:
-    imagePath="your-path/"+str(i)+".jpeg"
+    imagePath="downloads/"+str(i)+".jpeg"
     imageList.append(imagePath)
 
 
-###Make Pdf With Images
-with open("pdffilename.pdf", "wb") as f:
+#Make pdf with images
+with open("output.pdf", "wb") as f:
     f.write(img2pdf.convert([i for i in imageList if i.endswith(".jpeg")]))
