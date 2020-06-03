@@ -27,7 +27,8 @@ def downloadImages(url,endOfPage):
 
 # !! Important - slideshares 'data-full' link
 URL = str(input("Enter slideshare link : \n"))  
-endOfPage = int(input("Total page number : \n"))
+endOfPage = int(input("Total page number : \n")) 
+endOfPage += 1
 downloadImages(URL,endOfPage)
 
 
