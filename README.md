@@ -5,7 +5,7 @@
 # Notice
     [+] Firstly you need to know end page number of slideshare pdf because we will use this.
     [+] Get the slideshare's link(!important it should be data full link). You can find in web page's source code
-    [+] Choose folder on code for download images
+    [+] Choose a folder path on code for images to download
 
 # How works:
 
