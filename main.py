@@ -14,7 +14,7 @@ def downloadImages(url,endOfPage):
     try:
         image_urlList = list(url)
         for i in range(1,endOfPage):
-            #!! We choose -24.element because if you use dataFull link(get web page source code),  slideshare's rest of 23 element is same 
+            #!! We choose -24.element because if you use dataFull link(get web page source code),  the page number is in -24.index
             image_urlList[-24] = str(i) 
             image_url = "".join(image_urlList)
             img_data = requests.get(image_url).content
